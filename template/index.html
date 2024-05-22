@@ -1,0 +1,39 @@
+{% extends 'theme.html' %}
+
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+
+            </div>
+
+            <div class="col-lg-12">
+                <div class="row mt-5">
+                    {% for i in products %}
+                    <div class="col-lg-4">
+                        <div class="card mb-5" style="height: 30rem; width: 25rem;">
+                        <div class="card-header" >
+                            <img src="{{i.image.url}}" >
+                        </div>
+                        <div class="card-body">
+                            <h5>{{i.name}}</h5>
+                            <h5>{{i.price}}</h5>
+                        </div>
+                        <div class="card-footer">
+                        
+                                <!-- {{ i.name }} - ${{ i.price }} -->
+                                <form action="{% url 'add_to_cart' i.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit">Add to Cart</button>
+                                </form>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+    </div>
+{% endblock %}

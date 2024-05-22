@@ -1,0 +1,17 @@
+<!-- {% extends 'theme.html' %}
+
+{% block main %}
+<h2>Products</h2>
+<ul>
+    {% for product in products %}
+        <li>
+            {{ product.name }} - ${{ product.price }}
+            <form action="{% url 'add_to_cart' product.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Add to Cart</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %} -->
